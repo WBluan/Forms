@@ -19,22 +19,6 @@
     <form>
         <fieldset class="grupo">
 
-            <div class="campo">
-                <label for="CPF/CNPJ">CPF/CNPJ</label>
-                <input type="text" name="text" id="text" required>
-            </div>
-
-            <div class="campo">
-                <label for="email">Email</label>
-                <textarea row="10" style="height: 2em" id="descrição" name="descricao"></textarea>
-            </div>
-        
-            <div class="campo">
-                <label for="nome">Nome Completo</label>
-                <input type="text" name="nome" id="nome" required>
-          
-            </div>
-
     <head>
     <title>ViaCEP Webservice</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -115,8 +99,17 @@
       <form method="get" action=".">
        
         <div class="campo">
-        <label for="cep">Cep</label>
-        <input type="text" id="cep" value="" size="8" maxlength="9"
+         <label>CPF/CNPJ
+        <input name="CPF/CNPJ" type="text" id="text" size="100" maxlength="14"
+      /></label><br />   
+        <label>E-mail
+        <input name="email" type="text" id="email" size="100" maxlength="50"
+      /></label><br /> 
+              <label>Nome Completo
+        <input name="nome" type="text" id="nome" size="100" maxlength="50"
+      /></label><br /> 
+         <label>Cep:
+        <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
                onblur="pesquisacep(this.value);" /></label><br />
         <label>Rua:
         <input name="rua" type="text" id="rua" size="60" /></label><br />
@@ -126,106 +119,56 @@
         <input name="cidade" type="text" id="cidade" size="40" /></label><br />
         <label>Estado:
         <input name="uf" type="text" id="uf" size="2" /></label><br />
-     </div>
-    </form>
- <div class="campo">
- <label for="Ramal ou Telefone para contato">Ramal ou Telefone para contato</label>
-                <input type="text" name="text" id="text" required>
- </div>
+                 <label>WhatsApp
+        <input name="whatsapp" type="text" id="whatsapp" size="2" 
+      /></label><br /> 
+      <label>Máquina</label>
+                      <select id="Máquina" required>
+                    <option selected disabled value="">Selecione</option>
+                    <option>Due Flow</option>
+                    <option>Due NXT</option>
+                    <option>Due MAX (220V)</option>
+                    <option>Due MAX (110V)</option>
+                    <option>Due 60W</option>
+                    <option disabled value="">Impressora 3D</option>
+                    <option disabled value="">Due Galvo</option>
+                    <option disabled value="">Router</option>
+                </select>
+               
+                <div id="check">
+                <label for="acessorios">Acessórios</label>
+                <label>
+                    <input type="radio" name="acessorios" value="colmeia">Colmeia
+                </label>
+                <label>
+                    <input type="radio" name="acessorios" value="kitfino">Kit para corte fino
+                </label>
+                <label>
+                    <input type="radio" name="acessorios" value="eixo">Kit para marcação rotativa
+                </label>
+                <label>
+                    <input type="radio" name="acessorios" value="chiller">Chiller
+                </label>
+                <label>
+                    <input type="radio" name="acessorios" value="Monitor">Monitor
+                </label>
+                <label>
+                    <input type="radio" name="acessorios" value="compressor">Compressor
+                </label>
 
+  <label for="pagamento">Forma de Pagamento</label>
+       <input name="pagamento" style="height: 3em" type="text" id="pagamento" size="10">
+
+    
+    
+    </div>
 
     </body>
-
-
-
-
-            <div class="campo">
-                <label>Secretaria</label>
-                <select id="Secretaria" required>
-                    <option selected disabled value="">Selecione</option>
-                    <option>Administração</option>
-                    <option>Assistência Social</option>
-                    <option>Casa Civil</option>
-                    <option>Comunicação Social</option>
-                    <option>Controle Interno e Transparência</option>
-                    <option>Cultura e Turismo</option>
-                    <option>Desenvolvimento Econômico e Inovação</option>
-                    <option>Educação</option>
-                    <option>Esporte e Lazer</option>
-                    <option>Finanças</option>
-                    <option>Gabinete do vice-prefeito</option>
-                    <option>Infraestrutura</option>
-                    <option>Meio ambiente</option>
-                    <option>Planejamento e Assuuntos Estratégicos</option>
-                    <option>Procuradoria Geral</option>
-                    <option>Receita</option>
-                    <option>São José Previdência</option>
-                    <option>Saúde</option>
-                    <option>Segurança</option>
-                    <option>SUSP</option>
-                </select>
-
-            </div>
-            <div class="campo">
-                <label for="Setor">Setor</label>
-                <input type="text" name="text" id="text" required>
-            </div>
-
-
-            <div class="campo">
-                <label for="E-mail">E-mail</label>
-                <input type="email" name="email" id="email" required>
-            </div>
-            <div id="check">
-                <label for="Solicitacao">Solicitação</label>
-                <label>
-                    <input type="radio" name="solicitacao" value="Acesso a pastas / Criação de usuário">Acesso a pastas
-                    / Criação de usuário
-                </label>
-                <label>
-                    <input type="radio" name="solicitacao" value="Certificado Digital">Certificado Digital
-                </label>
-                <label>
-                    <input type="radio" name="solicitacao" value="Computador">Computador
-                </label>
-                <label>
-                    <input type="radio" name="solicitacao" value="E-mail">E-mail
-                </label>
-                <label>
-                    <input type="radio" name="solicitacao" value="Monitor">Monitor
-                </label>
-                <label>
-                    <input type="radio" name="solicitacao" value="Mouse / teclado">Mouse / teclado
-                </label>
-                <label>
-                    <input type="radio" name="solicitacao" value="Rede">Rede
-                </label>
-                <label>
-                    <input type="radio" name="solicitacao" value="Sites / Softwares">Sites / Softwares
-                </label>
-                <label>
-                    <input type="radio" name="solicitacao" value="Telefone">Telefone
-                </label>
-                <label>
-                    <input type="radio" name="solicitacao" value="Outros">Outros
-                </label>
-            </div>
-
-            <div class="campo">
-                <label for="Patrimonio">Patrimônio</label>
-                <input type="text" name="text" id="text" required>
-            </div>
-
-            <div class="campo">
-                <form action="processa_imagem_perfil.php" method="post" enctype="multipart/form-data">
-                    <label>Imagem de perfil: <input type="file" name="image"></label>
-                </form>
-            </div>
 
             <div>
                 <br>
                 <br>
-            <button class="botao" id="botone" type="button">Abrir ticket</button>
+            <button class="botao" id="botone" type="button">Enviar Pedido</button>
                 <br>
                 <br>
             </div>
