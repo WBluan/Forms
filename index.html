@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width-device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="formulario.css">
     <title>Formulário Clientes</title>
@@ -10,18 +11,6 @@
 
 <body>
 
-    <div>
-        <h1 id="titulo">Formulário Vendas</h1>
-        <br>
-    </div>
-
-
-    <form>
-        <fieldset class="grupo">
-
-    <head>
-    <title>ViaCEP Webservice</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <!-- Adicionando Javascript -->
     <script>
@@ -96,37 +85,73 @@
 
     <body>
     <!-- Inicio do formulario -->
-      <form method="get" action=".">
+
+        <div>
+        <h1 id="titulo">Formulário Vendas</h1>
+        <br>
+    </div>
+    
+    <form>
+        <fieldset class="grupo">
+
+      <form method="get" action="#">
        
         <div class="campo">
-         <label>CPF/CNPJ
-        <input name="CPF/CNPJ" type="text" id="text" size="100" maxlength="14"
-      /></label><br />   
-        <label>E-mail
-        <input name="email" type="text" id="email" size="100" maxlength="50"
-      /></label><br /> 
-              <label>Nome Completo
-        <input name="nome" type="text" id="nome" size="100" maxlength="50"
-      /></label><br /> 
-         <label>Cep:
+         <label>
+            CPF/CNPJ
+        <input name="CPF/CNPJ" type="text" id="text" size="100" maxlength="14" required>
+      </label><br>  
+        <label>
+            E-mail
+        <input name="email" type="text" id="email" size="100" maxlength="50" required>
+      </label><br> 
+    <label>
+        Nome Completo
+        <input name="nome" type="text" id="nome" size="100" maxlength="50" required>
+    </label><br> 
+         <label>
+            Cep:
         <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
-               onblur="pesquisacep(this.value);" /></label><br />
-        <label>Rua:
-        <input name="rua" type="text" id="rua" size="60" /></label><br />
-                <label>Número
-        <input name="numero" type="text" id="numero" size="2" /></label><br />
-                        <label>Complemento
-        <input name="complemento" type="text" id="complemento" size="2" /></label><br />
-        <label>Bairro:
-        <input name="bairro" type="text" id="bairro" size="40" /></label><br />
-        <label>Cidade:
-        <input name="cidade" type="text" id="cidade" size="40" /></label><br />
-        <label>Estado:
-        <input name="uf" type="text" id="uf" size="2" /></label><br />
-                 <label>WhatsApp
-        <input name="whatsapp" type="text" id="whatsapp" size="2" 
-      /></label><br /> 
-      <label>Máquina</label>
+               onblur="pesquisacep(this.value);" required>
+            </label><br>
+        <label>
+            Rua:
+        <input name="rua" type="text" id="rua" size="60" required>
+    </label>
+    <br>
+                <label>
+                    Número
+        <input name="numero" type="text" id="numero" size="2" required>
+    </label>
+    <br>
+                        <label>
+                            Complemento
+        <input name="complemento" type="text" id="complemento" size="2" />
+    </label>
+    <br>
+        <label>
+            Bairro:
+        <input name="bairro" type="text" id="bairro" size="40" required>
+    </label>
+    <br>
+        <label>
+            Cidade:
+        <input name="cidade" type="text" id="cidade" size="40" required>
+    </label>
+    <br>
+        <label>
+            Estado:
+        <input name="uf" type="text" id="uf" size="2" required>
+    </label>
+    <br>
+                 <label>
+                    WhatsApp
+        <input name="whatsapp" type="text" id="whatsapp" size="2" required>
+    </label>
+    <br> 
+      <label>
+        Máquina
+    </label>
                       <select id="Máquina" required>
                     <option selected disabled value="">Selecione</option>
                     <option>Due Flow</option>
@@ -139,8 +164,10 @@
                     <option disabled value="">Router</option>
                 </select>
                
-                <div id="check">
-                <label for="acessorios">Acessórios</label>
+                <div id="check" required>
+                <label for="acessorios">
+                    Acessórios
+                </label>
                 <label>
                     <input type="checkbox" name="acessorios" value="colmeia">Colmeia
                 </label>
@@ -167,12 +194,10 @@
                 
 
   <label for="pagamento">Forma de Pagamento</label>
-       <input name="pagamento" style="height: 3em" type="text" id="pagamento" size="10">
-
-    
-    
+       <input name="pagamento" style="height: 3em" type="text" id="pagamento" size="10" required>
+ 
     </div>
-                    <div id="check">
+                    <div id="check" required>
                 <label for="vendedor">Vendedor</label>
                 <label>
                     <input type="radio" name="Vendedor" value="name">Kayque
@@ -193,24 +218,24 @@
                     <input type="radio" name="Vendedor" value="name">André
                 </label>
 
-    </body>
+                    <div class="campo">
+                    <form action="processa_imagem_perfil.php" method="post" enctype="multipart/form-data">
+                    <button class="botao" id="botone"><a href="https://obrigada.neocities.org/">Enviar Pedido</a></button></div>
+ </form>
 
-            <div>
-                <br>
-                <br>
-            <button class="botao" id="botone" type="button">Enviar Pedido</button>
-                <br>
-                <br>
-            </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+   <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbz3Fa40SrIvdiQEjVDJ0qcdu_Q-9971GJ_FKluyCwnxcWt-Z4k45VJ8Zw-AVBs6PCnVBw/exec'
+                const form = document.forms['formulario']
 
-        </fieldset>
-       
-
-
-    </form>
-
+                form.addEventListener('submit', e => {
+                    e.preventDefault()
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                        .then(response => console.log('Success!', response))
+                        .catch(error => console.error('Error!', error.message))
+                       })
+</script>
 
 </body>
-
 </html>
