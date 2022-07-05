@@ -7,99 +7,30 @@
     <meta name="viewport" content="width-device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="formulario.css">
     <title>Formulário Clientes</title>
+
 </head>
 
 <body>
 
 
     <!-- Adicionando Javascript -->
-    <script>
-    
-    function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('rua').value=("");
-            document.getElementById('bairro').value=("");
-            document.getElementById('cidade').value=("");
-            document.getElementById('uf').value=("");
-    }
+    <script src="index.js"></script>
 
-    function meu_callback(conteudo) {
-        if (!("erro" in conteudo)) {
-            //Atualiza os campos com os valores.
-            document.getElementById('rua').value=(conteudo.logradouro);
-            document.getElementById('bairro').value=(conteudo.bairro);
-            document.getElementById('cidade').value=(conteudo.localidade);
-            document.getElementById('uf').value=(conteudo.uf);
-        } //end if.
-        else {
-            //CEP não Encontrado.
-            limpa_formulário_cep();
-            alert("CEP não encontrado.");
-        }
-    }
-        
-    function pesquisacep(valor) {
-
-        //Nova variável "cep" somente com dígitos.
-        var cep = valor.replace(/\D/g, '');
-
-        //Verifica se campo cep possui valor informado.
-        if (cep != "") {
-
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
-
-            //Valida o formato do CEP.
-            if(validacep.test(cep)) {
-
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua').value="...";
-                document.getElementById('bairro').value="...";
-                document.getElementById('cidade').value="...";
-                document.getElementById('uf').value="...";
-
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
-
-                //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
-
-            } //end if.
-            else {
-                //cep é inválido.
-                limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
-            }
-        } //end if.
-        else {
-            //cep sem valor, limpa formulário.
-            limpa_formulário_cep();
-        }
-    };
-
-    </script>
-    </head>
-
-    <body>
     <!-- Inicio do formulario -->
 
         <div>
         <h1 id="titulo">Formulário Vendas</h1>
         <br>
+
     </div>
     
-    <form>
+    <form name="formulario">
         <fieldset class="grupo">
-
-      <form method="get" action="#">
-       
+    
         <div class="campo">
          <label>
             CPF/CNPJ
-        <input name="CPF/CNPJ" type="text" id="text" size="100" maxlength="14" required>
+        <input name="cpf" type="text" id="text" size="100" maxlength="14" required>
       </label><br>  
         <label>
             E-mail
@@ -152,7 +83,7 @@
       <label>
         Máquina
     </label>
-                      <select id="Máquina" required>
+                      <select id="Máquina" name= "maquina" required>
                     <option selected disabled value="">Selecione</option>
                     <option>Due Flow</option>
                     <option>Due NXT</option>
@@ -164,7 +95,7 @@
                     <option disabled value="">Router</option>
                 </select>
                
-                <div id="check" required>
+                <div id="check" name="acessorios" required>
                 <label for="acessorios">
                     Acessórios
                 </label>
@@ -197,7 +128,7 @@
        <input name="pagamento" style="height: 3em" type="text" id="pagamento" size="10" required>
  
     </div>
-                    <div id="check" required>
+                    <div id="check" name="vendedor" required>
                 <label for="vendedor">Vendedor</label>
                 <label>
                     <input type="radio" name="Vendedor" value="name">Kayque
@@ -220,21 +151,24 @@
 
                     <div class="campo">
                     <form action="processa_imagem_perfil.php" method="post" enctype="multipart/form-data">
-                    <button class="botao" id="botone"><a href="https://obrigada.neocities.org/">Enviar Pedido</a></button></div>
+                    <button class="botao" id="botone">Enviar Pedido</button></div>
  </form>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
    <script>
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbz3Fa40SrIvdiQEjVDJ0qcdu_Q-9971GJ_FKluyCwnxcWt-Z4k45VJ8Zw-AVBs6PCnVBw/exec'
-                const form = document.forms['formulario']
-
-                form.addEventListener('submit', e => {
+                const scriptURL = "https://script.google.com/macros/s/AKfycbz3Fa40SrIvdiQEjVDJ0qcdu_Q-9971GJ_FKluyCwnxcWt-Z4k45VJ8Zw-AVBs6PCnVBw/exec"
+                const form = document.forms["formulario"]
+               
+                form.addEventListener("submit", e => {
                     e.preventDefault()
-                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                        .then(response => console.log('Success!', response))
-                        .catch(error => console.error('Error!', error.message))
-                       })
+                    fetch(scriptURL, { method: "POST", body: new FormData(form) })
+                        .then(response => $("#form_alerts").html("<div class='alert alert-success'>Chamado enviado! Um dos nossos técnicos entrará em contato."))
+                        .catch(error => $("#form_alerts").html("<div class='alert alert-danger'>Chamado não enviado. Ligue no 4310"))
+                })
+
+
+
 </script>
 
 </body>
