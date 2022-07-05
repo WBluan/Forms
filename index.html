@@ -30,7 +30,7 @@
         <div class="campo">
          <label>
             CPF/CNPJ
-        <input name="cpf" type="text" id="text" size="100" maxlength="14" required>
+        <input name="cpf" type="text" id="cpf" size="100" maxlength="14" required>
       </label><br>  
         <label>
             E-mail
@@ -95,7 +95,7 @@
                     <option disabled value="">Router</option>
                 </select>
                
-                <div id="check" name="acessorios" required>
+                <div id="acessorios" name="acessorios" required>
                 <label for="acessorios">
                     Acessórios
                 </label>
@@ -128,7 +128,7 @@
        <input name="pagamento" style="height: 3em" type="text" id="pagamento" size="10" required>
  
     </div>
-                    <div id="check" name="vendedor" required>
+                    <div id="vendedor" name="vendedor" required>
                 <label for="vendedor">Vendedor</label>
                 <label>
                     <input type="radio" name="Vendedor" value="name">Kayque
@@ -148,10 +148,13 @@
                 <label>
                     <input type="radio" name="Vendedor" value="name">André
                 </label>
+                </div>
 
                     <div class="campo">
                     <form action="processa_imagem_perfil.php" method="post" enctype="multipart/form-data">
-                    <button class="botao" id="botone">Enviar Pedido</button></div>
+                   <button class="botao" id="botone"><a href="https://obrigada.neocities.org/">Enviar chamado</button></a>
+                    </div>
+                      
  </form>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
